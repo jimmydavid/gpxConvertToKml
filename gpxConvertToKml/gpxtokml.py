@@ -221,7 +221,7 @@ visibilty_placemark_tag = ET.SubElement(placemark_tag,"visibility").text ="0"
 open_placemark_tag  = ET.SubElement(placemark_tag,"open").text = "0"
 style_url_tag = ET.SubElement(placemark_tag,"styleUrl").text = "#red"
 name_placemark_tag = ET.SubElement(placemark_tag,"name").text = name_race
-description_placemark_tag = ET.SubElement(placemark_tag,"description").text ="Distance: "+ str(dist_km)+ " km"  + "\nDuration: " + str(race_duration) + "\nStar Time: " + start_point_description+ "\nFinish Time: "+ finish_point_description  +"\nAverage speed: " + average_speed_min_km
+description_placemark_tag = ET.SubElement(placemark_tag,"description").text ="Distance: "+ str(dist_km)+ " km"  + "\nDuration: " + str(race_duration) + "\nStart Time: " + start_point_description+ "\nFinish Time: "+ finish_point_description  +"\nAverage speed: " + average_speed_min_km
 line_string_tag = ET.SubElement(placemark_tag,"LineString")
 extrude_tag = ET.SubElement(line_string_tag,"extrude").text = "true"
 tessellate_tag = ET.SubElement(line_string_tag,"tessellate").text = "true"
