@@ -74,23 +74,28 @@ for h in num_km:
 
   seg_fin = i
   dist_total += dist_actual
-  print('KM num: '+ str(h))
-  print('Segmento inicial del tramo: '+ str(seg_ini))
-  print('Segmento final del tramo: '+ str(seg_fin))
-  print('Distancia del tramo: '+ str(dist_actual/1000))
-  print('Distancia Acumulada: '+ str(dist_total/1000))
+  #print('KM:'+ str(h))
+  #print('Segmento inicial del tramo: '+ str(seg_ini))
+  #print('Segmento final del tramo: '+ str(seg_fin))
+  #print('Distancia del tramo: '+ str(dist_actual/1000))
+  #print('Distancia Acumulada: '+ str(dist_total/1000))
 
   time_dif_seconds = gpx.tracks[0].segments[seg_ini].points[0].time_difference(gpx.tracks[0].segments[seg_fin].points[0])
 
   #Compute average speed in meters / seconds
   average_speed = average_speed_m_s(dist_actual,time_dif_seconds)
 
-  #Convert average speed in min / km
-  average_speed_min_km = average_speed_m_k(average_speed)
+  #average_speed_min_km = average_speed_m_k(average_speed)
 
-  average_speed_min_km = average_speed_m_s_txt(average_speed_min_km)
+  #average_speed_min_km = average_speed_m_s_txt(average_speed_min_km)
   
-  print('Ritmo medio: '+ average_speed_min_km)
+  #Convert average speed in min / km
+  average_speed_min_km2 =average_speed2_m_k(average_speed)
+  
+  #print('Ritmo medio: '+ average_speed_min_km)
+  #print(average_speed_m_k(average_speed))
+  #print( average_speed_m_s_txt(average_speed_m_k(average_speed)))
+  print('KM'+ str(h) +' ' +average_speed_min_km2)
   
   seg_ini = seg_fin 
   dist_actual = 0
@@ -106,23 +111,22 @@ if meters_race > 0.1:
     
   time_dif_seconds_last_segment = gpx.tracks[0].segments[seg_ini].points[0].time_difference(gpx.tracks[0].segments[len(segments)-1].points[0])
 
-  print('Ultimos metros: ')
-  print('Segmento inicial del tramo: '+ str(seg_ini))
-  print('Segmento final del tramo: '+ str(len(segments)-1))
-  print('Distancia del tramo: '+ str(dist_last_segment))
-
   #Compute average speed in meters / seconds
   average_speed = average_speed_m_s(dist_last_segment,time_dif_seconds_last_segment)
 
   #Convert average speed in min / km
-  average_speed_min_km = average_speed_m_k(average_speed)
+  average_speed_min_km = average_speed2_m_k(average_speed)
 
-  average_speed_min_km = average_speed_m_s_txt(average_speed_min_km)
+  print(str(int(dist_last_segment)) + ' metros finales '+ str(average_speed_min_km))
+  #print('Segmento inicial del tramo: '+ str(seg_ini))
+  #print('Segmento final del tramo: '+ str(len(segments)-1))
+  #print('Distancia del tramo: '+ str(dist_last_segment))
+
+  #average_speed_min_km = average_speed_m_s_txt(average_speed_min_km)
   
-  print('Ritmo medio: '+ average_speed_min_km)
 
 
-print('Distancia Total: '+ str((dist_total+dist_last_segment)/1000))
+#print('Distancia Total: '+ str((dist_total+dist_last_segment)/1000))
 #print('Metros restantes: '+ str(meters_race))
 
 
