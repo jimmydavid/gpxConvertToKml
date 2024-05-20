@@ -85,6 +85,9 @@ for h in num_km:
   #Compute average speed in meters / seconds
   average_speed = average_speed_m_s(dist_actual,time_dif_seconds)
 
+  #Compute average speed in km / hour
+  v_average_speed_k_h = round(average_speed_k_h(average_speed),2)
+
   #average_speed_min_km = average_speed_m_k(average_speed)
 
   #average_speed_min_km = average_speed_m_s_txt(average_speed_min_km)
@@ -95,7 +98,7 @@ for h in num_km:
   #print('Ritmo medio: '+ average_speed_min_km)
   #print(average_speed_m_k(average_speed))
   #print( average_speed_m_s_txt(average_speed_m_k(average_speed)))
-  print('KM'+ str(h) +' ' +average_speed_min_km2)
+  print('KM'+ str(h) +' ' +average_speed_min_km2 + ' min/km - ('+str(v_average_speed_k_h) + ' k/h)')
   
   seg_ini = seg_fin 
   dist_actual = 0
@@ -114,10 +117,13 @@ if meters_race > 0.1:
   #Compute average speed in meters / seconds
   average_speed = average_speed_m_s(dist_last_segment,time_dif_seconds_last_segment)
 
+  #Compute average speed in km / hour
+  v_average_speed_k_h = round(average_speed_k_h(average_speed),2)
+
   #Convert average speed in min / km
   average_speed_min_km = average_speed2_m_k(average_speed)
 
-  print(str(int(dist_last_segment)) + ' metros finales '+ str(average_speed_min_km))
+  print(str(int(dist_last_segment)) + ' metros finales '+ str(average_speed_min_km) + ' min/km - ('+str(v_average_speed_k_h) + ' k/h)')
   #print('Segmento inicial del tramo: '+ str(seg_ini))
   #print('Segmento final del tramo: '+ str(len(segments)-1))
   #print('Distancia del tramo: '+ str(dist_last_segment))

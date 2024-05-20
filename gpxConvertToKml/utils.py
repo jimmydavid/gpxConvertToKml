@@ -32,3 +32,8 @@ def average_speed2_m_k(average_speed_m_s):
         return result 
     else:
         return 0
+
+def average_speed_k_h(speed_m_s):
+    """ Compute average speed in km / hour. Args:speed in meters/sec """
+    return 3.6*speed_m_s
+    
